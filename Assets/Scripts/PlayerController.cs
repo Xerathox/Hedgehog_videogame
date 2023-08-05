@@ -27,6 +27,15 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheckpoint;
     public LayerMask whatIsGround;
 
+    [Header("Crouch")]
+    public Transform controladorTecho;
+    public float radioTecho;
+    public float multiplicadorVelocidadAgachado;
+    public Collider2D colisionadorAgachado;
+    private bool estabaAgachado = false;
+    private bool agachar = false;
+
+
     public float knockbackLength, knockbackForce;
     private float knockbackCounter;
 
@@ -53,11 +62,49 @@ public class PlayerController : MonoBehaviour
                 theRB.velocity = new Vector2(moveSpeed * Input.GetAxisRaw("Horizontal"), theRB.velocity.y); //accedemos a la variable "Velocity" y usamos el "Input Manager Horizontal" para poder mover al personaje horizontalmente
                 isGrounded = Physics2D.OverlapCircle(groundCheckpoint.position, .2f, whatIsGround); //con esto el Player puede detectar el piso
 
+                //logica de agacharse
+                if (Input.GetKey(KeyCode.S))
+                {
+                    agachar = true;
+                }
+                else
+                {
+                    agachar = false;
+                }
+
+                if(!agachar)
+                {
+                    if(Physics2D.OverlapCircle(controladorTecho.position, radioTecho, whatIsGround))
+                    {
+                        agachar = true;
+                    }
+                }
+
+                if (agachar)
+                {
+                    if(!estabaAgachado)
+                    {
+                        estabaAgachado = true;
+                    }
+                    theRB.velocity = new Vector2(moveSpeed * multiplicadorVelocidadAgachado * Input.GetAxisRaw("Horizontal"), theRB.velocity.y);
+                    colisionadorAgachado.enabled = false;
+                }
+                else
+                {
+                    colisionadorAgachado.enabled = true;
+                    if(estabaAgachado)
+                    {
+                        estabaAgachado = false;
+                    }
+                }                
+
+                //si está en el suelo
                 if (isGrounded) 
                 {
                     canDoubleJump = true; //si estás en el suelo, puedes saltar
                 }
 
+                //lógica de salto
                 if (Input.GetButtonDown("Jump")) //si presionamos saltar
                 {
                     if (isGrounded) //si estamos en el suelo
@@ -97,6 +144,7 @@ public class PlayerController : MonoBehaviour
         }
         anim.SetFloat("moveSpeed", Mathf.Abs(theRB.velocity.x)); //actualizar las animaciones de movimiento
         anim.SetBool("isGrounded", isGrounded); //actualizar las animaciones de quedarse parado
+        anim.SetBool("Crouch", estabaAgachado); //actualizar las animaciones de agacharse
     }
 
     public void Knockback() 

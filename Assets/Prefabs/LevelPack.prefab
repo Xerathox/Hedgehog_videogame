@@ -168,6 +168,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1942522573
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1942522574}
+  m_Layer: 0
+  m_Name: ControladorTecho
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1942522574
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942522573}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4594358692547462343}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2836919368947091105
 GameObject:
   m_ObjectHideFlags: 0
@@ -1453,6 +1484,7 @@ MonoBehaviour:
   - {fileID: 2948042900867409812}
   bgm: {fileID: 6374030333602379811}
   levelEndMusic: {fileID: 6374030332909920711}
+  bossMusic: {fileID: 0}
 --- !u!82 &6374030332947501747
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4121,6 +4153,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7473558872809210552, guid: 643bc2618a96b8e4e85f07f86a4a0545, type: 3}
+      propertyPath: radioTecho
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7473558872809210552, guid: 643bc2618a96b8e4e85f07f86a4a0545, type: 3}
       propertyPath: bounceForce
       value: 5
       objectReference: {fileID: 0}
@@ -4131,6 +4167,18 @@ PrefabInstance:
     - target: {fileID: 7473558872809210552, guid: 643bc2618a96b8e4e85f07f86a4a0545, type: 3}
       propertyPath: knockbackLength
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7473558872809210552, guid: 643bc2618a96b8e4e85f07f86a4a0545, type: 3}
+      propertyPath: controladorTecho
+      value: 
+      objectReference: {fileID: 1942522574}
+    - target: {fileID: 7473558872809210552, guid: 643bc2618a96b8e4e85f07f86a4a0545, type: 3}
+      propertyPath: colisionadorAgachado
+      value: 
+      objectReference: {fileID: 4594358692547462340}
+    - target: {fileID: 7473558872809210552, guid: 643bc2618a96b8e4e85f07f86a4a0545, type: 3}
+      propertyPath: multiplicadorVelocidadAgachado
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7473558872809210556, guid: 643bc2618a96b8e4e85f07f86a4a0545, type: 3}
       propertyPath: m_Color.a
@@ -4182,6 +4230,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 643bc2618a96b8e4e85f07f86a4a0545, type: 3}
+--- !u!70 &4594358692547462340 stripped
+CapsuleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 7473558872809210558, guid: 643bc2618a96b8e4e85f07f86a4a0545, type: 3}
+  m_PrefabInstance: {fileID: 6374030333331244666}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4594358692547462343 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7473558872809210557, guid: 643bc2618a96b8e4e85f07f86a4a0545, type: 3}
@@ -4208,6 +4261,22 @@ MonoBehaviour:
   maxHealth: 6
   invincibleLength: 1
   deathEffect: {fileID: 1160388764032564147, guid: 99e277a071427684c8edf21bf369a00b, type: 3}
+--- !u!58 &1743615622
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4594358692547462392}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.58}
+  serializedVersion: 2
+  m_Radius: 0.42
 --- !u!1001 &6374030333618030627
 PrefabInstance:
   m_ObjectHideFlags: 0

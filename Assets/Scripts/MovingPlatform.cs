@@ -18,7 +18,7 @@ public class MovingPlatform : MonoBehaviour
 
     void Update()
     {
-        platform.position = Vector3.MoveTowards(platform.position, points[currentPoint].position, moveSpeed * Time.deltaTime); //
+        platform.position = Vector3.MoveTowards(platform.position, points[currentPoint].position, moveSpeed * Time.deltaTime);
 
         if(Vector3.Distance(platform.position, points[currentPoint].position) < .05f)
         {
