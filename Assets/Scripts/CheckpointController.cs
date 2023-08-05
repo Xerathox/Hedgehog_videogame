@@ -16,21 +16,21 @@ public class CheckpointController : MonoBehaviour
 
     private void Start()
     {
-        checkpoints = FindObjectsOfType<Checkpoint>();
-        spawnPoint = PlayerController.instance.transform.position;
+        checkpoints = FindObjectsOfType<Checkpoint>(); //inicializamos los checkpoints de la escena
+        spawnPoint = PlayerController.instance.transform.position; //guardamos la posición del jugador en el checkpoint
     }
 
     public void DeactivateCheckpoints()
     {
         for (int i = 0; i < checkpoints.Length; i++) 
         {
-            checkpoints[i].ResetCheckpoint();
+            checkpoints[i].ResetCheckpoint(); //reseteamos todos los checkpoints
         }
     }
 
     public void SetSpawnPoint(Vector3 newSpawnPoint)
     {
-        spawnPoint = newSpawnPoint;
+        spawnPoint = newSpawnPoint; //el nuevo spawnpoint que tocamos ahora es el spawnpoint por default
     }
 
     

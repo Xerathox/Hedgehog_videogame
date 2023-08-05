@@ -9,17 +9,15 @@ public class LSCameraController : MonoBehaviour
 
     public Transform target;
 
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void LateUpdate()
     {
-        float xPos = Mathf.Clamp(target.position.x, minPos.x, maxPos.x);
-        float yPos = Mathf.Clamp(target.position.y, minPos.y, maxPos.y);
+        float xPos = Mathf.Clamp(target.position.x, minPos.x, maxPos.x); //seguimiento de la cámara con un poquito de retraso para el eje x
+        float yPos = Mathf.Clamp(target.position.y, minPos.y, maxPos.y); //seguimiento de la cámara con un poquito de retraso para el eje y
 
         transform.position = new Vector3(xPos, yPos,transform.position.z);
 

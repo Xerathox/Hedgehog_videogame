@@ -19,31 +19,31 @@ public class LSPlayer : MonoBehaviour
     void Update()
     {
 
-        transform.position = Vector3.MoveTowards(transform.position, currentPoint.transform.position,moveSpeed* Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, currentPoint.transform.position, moveSpeed* Time.deltaTime); //velocidad a la que se moverá el jugador
 
         if(Vector3.Distance(transform.position, currentPoint.transform.position) < .1f)
         {
-            if(Input.GetAxisRaw("Horizontal") > .5f)
+            if(Input.GetAxisRaw("Horizontal") > .5f) //movimiento hacia la derecha
             {
                 if(currentPoint.right != null) {
                     SetNextPoint(currentPoint.right);                
                 }
             }
-            if(Input.GetAxisRaw("Horizontal") < -.5f)
+            if(Input.GetAxisRaw("Horizontal") < -.5f) //movimiento hacia la izquierda
             {
                 if(currentPoint.left != null)
                 {
                     SetNextPoint(currentPoint.left);                
                 }
             }
-            if(Input.GetAxisRaw("Vertical") > .5f)
+            if(Input.GetAxisRaw("Vertical") > .5f) //movimiento hacia arriba
             {
                 if(currentPoint.up != null)
                 {
                     SetNextPoint(currentPoint.up);                
                 }
             }
-            if(Input.GetAxisRaw("Vertical") < -.5f)
+            if(Input.GetAxisRaw("Vertical") < -.5f) //movimiento hacia abajo
             {
                 if(currentPoint.down != null)
                 {
@@ -51,13 +51,13 @@ public class LSPlayer : MonoBehaviour
                 }
             }
 
-            if(currentPoint.isLevel && currentPoint.levelToLoad != "" && !currentPoint.isLocked)
+            if(currentPoint.isLevel && currentPoint.levelToLoad != "" && !currentPoint.isLocked) //si el nivel en el que estoy ee un nivel y el nivel a cargar tiene nombre, además de que no está bloqueado
             {
-                LSUIManager.instance.ShowInfo(currentPoint);
-                if(Input.GetButtonDown("Jump"))
+                LSUIManager.instance.ShowInfo(currentPoint); //muestro su información
+                if(Input.GetButtonDown("Jump")) //y si presiono la tecla espacio
                 {
-                    levelLoading = true;
-                    theManager.LoadLevel();
+                    levelLoading = true; //activamos el booleano para poder cargar el nivel
+                    theManager.LoadLevel(); //cargamos el nivel
                 }
             }
         }
@@ -65,7 +65,7 @@ public class LSPlayer : MonoBehaviour
 
     public void SetNextPoint(MapPoint nextPoint)
     {
-        currentPoint = nextPoint;
-        LSUIManager.instance.HideInfo();
+        currentPoint = nextPoint; //nos movemos al siguiente punto
+        LSUIManager.instance.HideInfo(); //escondemos la información 
     }
 }

@@ -6,23 +6,26 @@ public class Bouncer : MonoBehaviour
 {
     private Animator anim;
 
-    public float bounceForce = 10f;
+    public float bounceForce = 10;
 
 
-    // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
+       anim = GetComponent<Animator>(); 
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
         if(other.tag == "Player")
         {
-            PlayerController.instance.theRB.velocity = new Vector2(PlayerController.instance.theRB.velocity.x, bounceForce);
-            AudioManager.instance.PlaySFX(12);
-            anim.SetTrigger("Bounce");
-        }
-    }
+            PlayerController.instance.theRB.velocity = new Vector2(PlayerController.instance.theRB.velocity.x,bounceForce);
+            AudioManager.instance.PlaySFX(13); 
 
+            anim.SetTrigger("Bounce");
+            
+        }
+        
+    }
 
 }

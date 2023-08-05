@@ -8,7 +8,7 @@ public class LevelExit : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            LevelManager.instance.EndLevel();
+            LevelManager.instance.EndLevel(); //terminamos el nivel
         }
     }
 }

@@ -17,7 +17,7 @@ public class DamagePlayer : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
-            PlayerHealthController.instance.DealDamage();
+            PlayerHealthController.instance.DealDamage(); //Si colisiona tu hitbox con el de algún objeto o NPC enemigo, te hace daño
         }
     }
     

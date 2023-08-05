@@ -23,12 +23,12 @@ public class LSUIManager : MonoBehaviour
 
     private void Start()
     {
-        FadeFromBlack();
+        FadeFromBlack(); //quitamos la pantalla negra
     }
 
     void Update()
     {
-        if(shouldFadeToBlack)
+        if(shouldFadeToBlack) //lógica para alternar la pantalla negra
         {
             fadeScreen.color = new Color(fadeScreen.color.r,fadeScreen.color.g,fadeScreen.color.b,Mathf.MoveTowards(fadeScreen.color.a, 255f, fadeSpeed * Time.deltaTime));
             if(fadeScreen.color.a == 255f)
@@ -47,19 +47,19 @@ public class LSUIManager : MonoBehaviour
         }                
     }
 
-    public void FadeToBlack()
+    public void FadeToBlack() //pantalla negra
     {
         shouldFadeToBlack = true;
         shouldFadeFromBlack = false;
     }
 
-    public void FadeFromBlack()
+    public void FadeFromBlack() //remover pantalla negra
     {
         shouldFadeToBlack = false;
         shouldFadeFromBlack = true;
     }
 
-    public void ShowInfo(MapPoint levelInfo)
+    public void ShowInfo(MapPoint levelInfo) //muestra la información de cada nivel
     {
        levelName.text = levelInfo.levelName;
 
@@ -80,7 +80,7 @@ public class LSUIManager : MonoBehaviour
        levelInfoPanel.SetActive(true);
     }
 
-    public void HideInfo()
+    public void HideInfo() //esconde la información de cada nivel
     {
         levelInfoPanel.SetActive(false);
     }

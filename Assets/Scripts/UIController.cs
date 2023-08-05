@@ -30,7 +30,7 @@ public class UIController : MonoBehaviour
 
     void Update()
     {
-        if(shouldFadeToBlack)
+        if(shouldFadeToBlack) //enciende una pantalla negra encima de todo el UI
         {
             fadeScreen.color = new Color(fadeScreen.color.r,fadeScreen.color.g,fadeScreen.color.b,Mathf.MoveTowards(fadeScreen.color.a, 255f, fadeSpeed * Time.deltaTime));
             if(fadeScreen.color.a == 255f)
@@ -39,7 +39,7 @@ public class UIController : MonoBehaviour
             }
         }
 
-        if(shouldFadeFromBlack)
+        if(shouldFadeFromBlack) //apaga una pantalla negra encima de todo el UI
         {
             fadeScreen.color = new Color(fadeScreen.color.r,fadeScreen.color.g,fadeScreen.color.b,Mathf.MoveTowards(fadeScreen.color.a, 0f, fadeSpeed * Time.deltaTime));
             if(fadeScreen.color.a == 0f) 
@@ -49,7 +49,7 @@ public class UIController : MonoBehaviour
         }
     }
 
-    public void UpdateHealthDisplay()
+    public void UpdateHealthDisplay() //lógica de la barra de vida
     {
         switch (PlayerHealthController.instance.currentHealth)
         {
@@ -91,18 +91,18 @@ public class UIController : MonoBehaviour
         }
     }
 
-    public void UpdateGemCount()
+    public void UpdateGemCount() //actualiza la cantidad de gemas recolectadas
     {
         gemText.text = LevelManager.instance.gemsCollected.ToString();
     }
 
-    public void FadeToBlack()
+    public void FadeToBlack() //convierte la pantalla en negra
     {
         shouldFadeToBlack = true;
         shouldFadeFromBlack = false;
     }
 
-    public void FadeFromBlack()
+    public void FadeFromBlack() //convierte la pantalla en negra
     {
         shouldFadeToBlack = false;
         shouldFadeFromBlack = true;

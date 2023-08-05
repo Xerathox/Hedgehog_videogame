@@ -26,16 +26,14 @@ public class CameraController : MonoBehaviour
     {
         if (!stopFollow)
         {
-            transform.position = new Vector3(target.position.x, Mathf.Clamp(target.position.y, minHeight, maxHeight), transform.position.z);
+            transform.position = new Vector3(target.position.x, Mathf.Clamp(target.position.y, minHeight, maxHeight), transform.position.z); //seguimiento de la cámara al jugador
 
-            Vector2 amountToMove = new Vector2(transform.position.x - lastPos.x, transform.position.y - lastPos.y);
+            Vector2 amountToMove = new Vector2(transform.position.x - lastPos.x, transform.position.y - lastPos.y); //cuanta es la cantidad de movimiento que tenemos que asignarle a nuestros backgrounds
 
-            farBackground.position = farBackground.position + new Vector3(amountToMove.x, amountToMove.y, 0f);
-            middleBackground.position += new Vector3(amountToMove.x, amountToMove.y, 0f) * .5f;
+            farBackground.position = farBackground.position + new Vector3(amountToMove.x, amountToMove.y, 0f); //seguimiento del farBackground a la misma velocidad del jugador
+            middleBackground.position += new Vector3(amountToMove.x, amountToMove.y, 0f) * .5f; //seguimiento del middleBackground a una velocidad más lenta que la del jugador
 
-            lastPos = transform.position;
-
+            lastPos = transform.position; //guardar la última posición 
         }
-
     }
 }

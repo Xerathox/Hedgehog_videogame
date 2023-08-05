@@ -95,18 +95,18 @@ public class PlayerController : MonoBehaviour
                 }            
             }
         }
-        anim.SetFloat("moveSpeed", Mathf.Abs(theRB.velocity.x));
-        anim.SetBool("isGrounded", isGrounded);
+        anim.SetFloat("moveSpeed", Mathf.Abs(theRB.velocity.x)); //actualizar las animaciones de movimiento
+        anim.SetBool("isGrounded", isGrounded); //actualizar las animaciones de quedarse parado
     }
 
     public void Knockback() 
     {
-        knockbackCounter = knockbackLength;
-        theRB.velocity = new Vector2(0f,knockbackForce);
+        knockbackCounter = knockbackLength; //distancia horizontal de stunneo 
+        theRB.velocity = new Vector2(0f,knockbackForce); //distancia vertical de stunneo
     }
 
     public void Bounce()
     {
-        theRB.velocity = new Vector2(theRB.velocity.x, bounceForce);
+        theRB.velocity = new Vector2(theRB.velocity.x, bounceForce); //rebotar cuando me hago daño
     }
 }

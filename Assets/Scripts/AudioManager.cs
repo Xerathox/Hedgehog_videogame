@@ -8,9 +8,7 @@ public class AudioManager : MonoBehaviour
 
     public AudioSource[] soundEffects;
 
-    public AudioSource bgm, levelEndMusic;
-
-    //version 2.0
+    public AudioSource bgm, levelEndMusic, bossMusic;
 
     private void Awake() 
     {
@@ -29,17 +27,30 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySFX(int soundToPlay)
     {
-        soundEffects[soundToPlay].Stop();
+        soundEffects[soundToPlay].Stop(); //paramos el sondio
 
-        soundEffects[soundToPlay].pitch = Random.Range(0.9f,1.1f);
+        soundEffects[soundToPlay].pitch = Random.Range(0.9f,1.1f); //Hacemos que la frecuencia de pitch varie entre .9 y 1.1
 
-        soundEffects[soundToPlay].Play();
+        soundEffects[soundToPlay].Play(); //reproducimos el sonido
     }
 
     public void PlayLevelVictory()
     {
-        bgm.Stop();
-        levelEndMusic.Play();
+        bgm.Stop(); //paramos el backgroundmusic (bgm)
+        levelEndMusic.Play(); //empezamos a reproducir la música de final de nivel
     }
+
+    public void PlayBossMusic()
+    {
+        bgm.Stop();
+        bossMusic.Play();
+    }
+
+    public void StopBossMusic()
+    {
+        bossMusic.Stop();
+        bgm.Play();
+    }
+
 
 }
