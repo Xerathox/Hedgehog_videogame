@@ -10,6 +10,8 @@ public class AudioManager : MonoBehaviour
 
     public AudioSource bgm, levelEndMusic;
 
+    //gola
+
     private void Awake() 
     {
         instance = this;
