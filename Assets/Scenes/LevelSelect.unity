@@ -8245,7 +8245,7 @@ PrefabInstance:
       objectReference: {fileID: 3287707793267191702}
     - target: {fileID: 3287707793123110861, guid: 6fff7ee26affaa74f8d234ba50881872, type: 3}
       propertyPath: bestTime
-      value: 13
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3287707793123110861, guid: 6fff7ee26affaa74f8d234ba50881872, type: 3}
       propertyPath: gemBadge
